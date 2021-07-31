@@ -40,6 +40,6 @@ func Test(t *testing.T) {
 	}
 
 	for _, tc := range testcases {
-		flatten(tc.root)
+		preorderTraversal(tc.root)
 	}
 }
