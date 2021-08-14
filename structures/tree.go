@@ -4,17 +4,14 @@ import (
 	"fmt"
 )
 
-// TreeNode is tree's node
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
 }
 
-// NULL 方便添加测试数据
 var NULL = -1 << 63
 
-// Ints2TreeNode 利用 []int 生成 *TreeNode
 func Ints2TreeNode(ints []int) *TreeNode {
 	n := len(ints)
 	if n == 0 {
@@ -49,8 +46,6 @@ func Ints2TreeNode(ints []int) *TreeNode {
 	return root
 }
 
-// GetTargetNode 返回 Val = target 的 TreeNode
-// root 中一定有 node.Val = target
 func GetTargetNode(root *TreeNode, target int) *TreeNode {
 	if root == nil || root.Val == target {
 		return root
@@ -70,14 +65,13 @@ func indexOf(val int, nums []int) int {
 		}
 	}
 
-	msg := fmt.Sprintf("%d 不存在于 %v 中", val, nums)
+	msg := fmt.Sprintf("%d %v", val, nums)
 	panic(msg)
 }
 
-// PreIn2Tree 把 preorder 和 inorder 切片转换成 二叉树
 func PreIn2Tree(pre, in []int) *TreeNode {
 	if len(pre) != len(in) {
-		panic("preIn2Tree 中两个切片的长度不相等")
+		panic("preIn2Tree")
 	}
 
 	if len(in) == 0 {
@@ -100,10 +94,9 @@ func PreIn2Tree(pre, in []int) *TreeNode {
 	return res
 }
 
-// InPost2Tree 把 inorder 和 postorder 切片转换成 二叉树
 func InPost2Tree(in, post []int) *TreeNode {
 	if len(post) != len(in) {
-		panic("inPost2Tree 中两个切片的长度不相等")
+		panic("inPost2Tree")
 	}
 
 	if len(in) == 0 {
@@ -126,7 +119,6 @@ func InPost2Tree(in, post []int) *TreeNode {
 	return res
 }
 
-// Tree2Preorder 把 二叉树 转换成 preorder 的切片
 func Tree2Preorder(root *TreeNode) []int {
 	if root == nil {
 		return nil
@@ -143,7 +135,6 @@ func Tree2Preorder(root *TreeNode) []int {
 	return res
 }
 
-// Tree2Inorder 把 二叉树转换成 inorder 的切片
 func Tree2Inorder(root *TreeNode) []int {
 	if root == nil {
 		return nil
@@ -160,7 +151,6 @@ func Tree2Inorder(root *TreeNode) []int {
 	return res
 }
 
-// Tree2Postorder 把 二叉树 转换成 postorder 的切片
 func Tree2Postorder(root *TreeNode) []int {
 	if root == nil {
 		return nil
@@ -177,7 +167,6 @@ func Tree2Postorder(root *TreeNode) []int {
 	return res
 }
 
-// Equal return ture if tn == a
 func (tn *TreeNode) Equal(a *TreeNode) bool {
 	if tn == nil && a == nil {
 		return true
@@ -218,9 +207,7 @@ func Tree2ints(tn *TreeNode) []int {
 	return res[:i]
 }
 
-// T2s convert *TreeNode to []int
 func T2s(head *TreeNode, array *[]int) {
-	fmt.Printf("运行到这里了 head = %v array = %v\n", head, array)
 	// fmt.Printf("****array = %v\n", array)
 	// fmt.Printf("****head = %v\n", head.Val)
 	*array = append(*array, head.Val)
