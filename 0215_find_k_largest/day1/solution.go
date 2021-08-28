@@ -1,28 +1,31 @@
 package day1
 
 func findKthLargest(nums []int, k int) int {
-	n := len(nums)
-	i := n - k
-	l, r := 0, len(nums)-1
-	for l < r {
-		pivot := partition(nums, l, r)
+	return quickSelect(nums, len(nums)-k)
+}
+
+func quickSelect(nums []int, i int) int {
+	left, right := 0, len(nums)-1
+	for left < right {
+		pivot := partition(nums, left, right)
 		if pivot == i {
 			return nums[pivot]
 		}
 
 		if pivot > i {
-			r = pivot - 1
+			right = pivot - 1
 		} else {
-			l = pivot + 1
+			left = pivot + 1
 		}
 	}
 
-	return nums[l]
+	return nums[left]
 }
 
 func partition(nums []int, left, right int) int {
 	pivot := right
 	j := left
+
 	for i := left; i < right; i++ {
 		if nums[i] < nums[pivot] {
 			nums[i], nums[j] = nums[j], nums[i]
