@@ -24,3 +24,6 @@ func max(a, b int) int {
 
 	return b
 }
+
+func t1() int {
+}

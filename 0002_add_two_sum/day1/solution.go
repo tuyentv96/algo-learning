@@ -29,11 +29,12 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 			tail = tail.Next
 		}
 	}
-	println(1)
 
 	if carry > 0 {
 		tail.Next = &ListNode{Val: carry}
 	}
+
+	return head
 }
 
 func reverse(head *ListNode) *ListNode {
