@@ -7,7 +7,7 @@ type ListNode struct {
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	carry := 0
-	var head, tail *ListNode
+
 	for l1 != nil || l2 != nil {
 		sum := carry
 		if l1 != nil {

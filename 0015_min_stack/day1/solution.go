@@ -11,6 +11,7 @@ func Constructor() MinStack {
 		elements: make([]int, 0),
 		mins:     make([]int, 0),
 		length:   0,
+		length:   0,
 	}
 }
 

@@ -17,7 +17,7 @@ func Test(t *testing.T) {
 	}
 
 	for _, tc := range testcases {
-		got := permute(tc.nums)
+		got:=permute(tc.nums)
 		assert.Equal(t, tc.want, len(got))
 	}
 }

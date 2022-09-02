@@ -1,8 +1,10 @@
 package day1
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+	"time"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func Test(t *testing.T) {
@@ -29,6 +31,7 @@ func Test(t *testing.T) {
 	}
 
 	for _, tc := range testcases {
+		time.Sleep(time.Hour)
 		nextPermutation(tc.arr)
 		assert.Equal(t, tc.want, tc.arr)
 	}
